@@ -8,18 +8,17 @@ import org.testcontainers.containers.RabbitMQContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @TestConfiguration(proxyBeanMethods = false)
-class TestcontainersConfiguration {
+public class ContainersConfig {
 
-	@Bean
-	@ServiceConnection
-	PostgreSQLContainer<?> postgresContainer() {
-		return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
-	}
+    @Bean
+    @ServiceConnection
+    PostgreSQLContainer<?> postgresContainer() {
+        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:16-alpine"));
+    }
 
-	@Bean
-	@ServiceConnection
-	RabbitMQContainer rabbitContainer() {
-		return new RabbitMQContainer(DockerImageName.parse("rabbitmq:latest"));
-	}
-
+    @Bean
+    @ServiceConnection
+    RabbitMQContainer rabbitMQContainer() {
+        return new RabbitMQContainer(DockerImageName.parse("rabbitmq:3.12.11-alpine"));
+    }
 }
