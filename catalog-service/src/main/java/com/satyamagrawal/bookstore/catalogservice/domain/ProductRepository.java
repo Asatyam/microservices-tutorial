@@ -1,4 +1,7 @@
 package com.satyamagrawal.bookstore.catalogservice.domain;
 
-public interface ProductRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+interface ProductRepository extends JpaRepository<ProductEntity, Long> {
+
 }
