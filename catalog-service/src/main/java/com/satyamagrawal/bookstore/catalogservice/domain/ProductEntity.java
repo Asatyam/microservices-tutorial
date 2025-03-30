@@ -3,17 +3,15 @@ package com.satyamagrawal.bookstore.catalogservice.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-
 import java.math.BigDecimal;
 
 @Entity
-@Table(name="products")
+@Table(name = "products")
 class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_seq")
-    @SequenceGenerator(name="product_id_generator", sequenceName = "product_id_seq")
+    @SequenceGenerator(name = "product_id_generator", sequenceName = "product_id_seq")
     private Long id;
 
     @NotEmpty(message = "Product code is required")
@@ -35,9 +33,7 @@ class ProductEntity {
     @Column(name = "price", nullable = false)
     private BigDecimal price;
 
-    public ProductEntity() {
-
-    }
+    public ProductEntity() {}
 
     public BigDecimal getPrice() {
         return price;
